@@ -1,0 +1,110 @@
+// -  1. Use for para imprimir os numeros pares de 0 a 20
+Console.WriteLine("Exercício 1 \n");a
+
+int numPares;
+for (int i =1; i <= 20; i++)
+{
+    numPares = i % 2;
+    if (numPares == 0)
+    {
+        Console.WriteLine(i);
+    }
+}
+
+// 2. Calcule o fatorial de um numero usando while
+int numero = 5;
+int resultado = 1;
+Console.WriteLine($"\nExercicio 2 - Fatorial com While do número: {numero}");
+
+while (numero > 1)
+{
+   resultado *= numero;
+   numero--;
+}
+
+Console.WriteLine(resultado);
+
+// Peça nomes ao usuario ate ele digitar 'fim' e exiba a lista com foreach
+Console.WriteLine("\nExercício 3 - Nomes em lista\n");
+
+string nome = "";
+List<string> list = new List<string>();
+do
+{
+    Console.WriteLine("Escreve nomes para serem colocados em uma lista ou digite 'fim' para sair");
+    nome = Console.ReadLine();
+    if (nome != "fim")
+    {
+        list.Add(nome);
+    }
+} while (nome != "fim");
+
+Console.WriteLine("\nNomes dentro da lista: ");
+foreach (string nomes in list)
+{
+    Console.WriteLine(nomes);
+}
+Console.WriteLine($"Total de nomes da lista: {list.Count}");
+
+
+////-4.Crie um array com 5 notas e calcule a media usando foreach
+Console.WriteLine("\n Exercício 4\n");
+
+double[] arryNotas = {7, 5, 8, 9, 7.3};
+double media = 0;
+
+foreach (double notas in arryNotas)
+{
+    media += notas;
+}
+Console.WriteLine($"Média de notas: {media / arryNotas.Length}");
+
+//Exercício 5
+Console.WriteLine("\nExercício 5 - Tabuada");
+
+for (int i = 1; i <= 10; i++)
+{
+    for (int j = 1; j <= 10; j++)
+    {
+        Console.Write($"{i} * {j} = {j * i}\t");
+    }
+    Console.WriteLine();
+}
+
+//Exercício 6
+Console.WriteLine("\n Exercício 6 - Contar números inteiros do usuário");
+
+List<int> numeros = new List<int>();
+string? strNum;
+
+Console.WriteLine("Digite números reais e inteiros, iremos calcular a quantidade digitada. (0) para sair");
+do
+{
+    strNum = Console.ReadLine();
+
+    if (int.TryParse(strNum, out int num1))
+    {
+        Console.WriteLine($"Variável {strNum} convertido para inteiro: {num1}");
+    }
+    else
+    {
+        Console.WriteLine($"Não foi possível converte o número: {strNum}");
+    }
+
+    numeros.Add(num1);
+
+} while (strNum != "0");
+
+int numPositivos = 0;
+int indice = 0;
+
+while (indice < numeros.Count)
+{
+    if (numeros[indice] > 0)
+    {
+        numPositivos++;
+    }
+    indice++;
+};
+
+Console.WriteLine($"\nQuantidade de números inteiros: {numPositivos}");
